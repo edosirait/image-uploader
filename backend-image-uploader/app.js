@@ -33,7 +33,7 @@ if (!mongoURI) {
     process.exit(1);
 }
 
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(mongoURI)
     .then(() => console.log('MongoDB Connected'))
     .catch((err) => console.log('MongoDB Connection', err));
 
