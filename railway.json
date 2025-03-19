@@ -1,0 +1,7 @@
+{
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "cd backend-image-uploader && npm install",
+    "startCommand": "cd backend-image-uploader && npm start"
+  }
+}
