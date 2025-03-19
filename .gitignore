@@ -1,0 +1,5 @@
+backend-image-uploader/node_modules/
+frontend-image-uploader/node_modules/
+.env
+.idea/
+dist/
