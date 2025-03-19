@@ -8,6 +8,10 @@ const { GridFSBucket } = require('mongodb');
 const { Readable } = require('stream');
 const cors = require('cors');
 
+const swaggerSetup = require('./swagger/swagger');
+const imageRoutes = require('./routes/imageRoutes');
+
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -26,6 +30,8 @@ app.use(cors({
         }
     }
 }));
+
+swaggerSetup(app);
 
 const mongoURI = process.env.MONGO_URI || process.env.MONGO_URL;
 
@@ -91,5 +97,7 @@ app.get('/files/:filename', (req, res) => {
         .on('error', () => res.status(404).json({ error: 'File not found' }))
         .pipe(res);
 });
+
+app.use('/api-docs', imageRoutes);
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
