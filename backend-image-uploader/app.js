@@ -1,5 +1,6 @@
-require('dotenv-flow').config();
-
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv-flow').config();
+}
 const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
