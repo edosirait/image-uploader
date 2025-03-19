@@ -13,7 +13,6 @@ export class ImageService {
   constructor(private http: HttpClient) { }
 
   uploadImage(file: File): Observable<any> {
-    console.log('API_URL', this.API_URL)
     const formData = new FormData();
     formData.append('image', file);
     return this.http.post(`${this.API_URL}/upload`, formData);

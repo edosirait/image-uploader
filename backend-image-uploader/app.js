@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 const allowedOrigins = [
     'http://localhost:4200',
     'https://image-uploader-production-fcc9.up.railway.app',
-    'https://image-uploader-chi-taupe.vercel.app/',
+    'https://image-uploader-chi-taupe.vercel.app',
 ];
 app.use(cors({
     origin: (origin, callback) => {
