@@ -12,7 +12,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors( { origin: 'http://localhost:4200' }));
 
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('MongoDB Connected'))
+    .catch((err) => console.log('MongoDB Connection', err));
+
 const conn = mongoose.connection;
 
 let gfs;
@@ -22,6 +25,10 @@ conn.once('open', () => {
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
+
+app.get('/', (req, res) => {
+    res.send('Backend Image Upload is Live');
+})
 
 // === API UPLOAD ===
 app.post('/upload', upload.single('image'), (req, res) => {
